@@ -112,8 +112,8 @@ public class PostbuildTask extends Recorder {
 					script = getGroupedScript(taskProperties
 							.getLogProperties(), taskProperties.script, buildLog);
 
-					if (taskProperties.getRunIfJobSuccessful() && pr!=null && pr.isWorseThan(Result.UNSTABLE)) {
-						listener.getLogger().println("Skipping post build task "+i+" - job status is worse than unstable : "+build.getResult());
+					if (taskProperties.getRunIfJobSuccessful() && pr!=null && pr.isWorseThan(Result.SUCCESS)) {
+						listener.getLogger().println("Skipping post build task "+i+" - job status is not SUCCESS : "+build.getResult());
 						continue;
 					}
 
